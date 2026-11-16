@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cerita Kita 🤍</title>
+<title>Our Little Story 🤍</title>
 
 <style>
 * {
@@ -69,14 +69,8 @@ header {
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .small-text {
@@ -118,7 +112,7 @@ h1 {
     transform: translateY(-3px);
 }
 
-/* AMPLOP */
+/* ENVELOPE */
 
 .envelope {
     width: 220px;
@@ -166,7 +160,7 @@ h1 {
     margin-top: 15px;
 }
 
-/* SURAT */
+/* LETTER */
 
 .letter-paper {
     width: min(650px, 92%);
@@ -252,7 +246,7 @@ h1 {
     letter-spacing: 2px;
 }
 
-/* HALAMAN PENUTUP */
+/* ENDING */
 
 .ending-content {
     max-width: 700px;
@@ -299,7 +293,7 @@ h1 {
     margin-top: 30px;
 }
 
-/* HATI MELAYANG */
+/* FLOATING HEARTS */
 
 .floating {
     position: fixed;
@@ -348,7 +342,6 @@ h1 {
 
 <header>
     <div class="logo">our little story.</div>
-
     <button class="music-btn" onclick="toggleMusic()" id="musicButton">
         ♫ Music Off
     </button>
@@ -358,7 +351,7 @@ h1 {
     <source src="music/song.mp3" type="audio/mpeg">
 </audio>
 
-<!-- HALAMAN 1: AMPLOP -->
+<!-- PAGE 1: ENVELOPE -->
 
 <section class="page active" id="page1">
 
@@ -367,28 +360,28 @@ h1 {
     <h1>Happy 3rd Anniversary 🤍</h1>
 
     <p class="description">
-        Ada sesuatu yang Lisa siapkan untuk sayang...
+        I've prepared something special for you...
     </p>
 
     <div class="envelope" id="envelope" onclick="openEnvelope()"></div>
 
     <p class="envelope-hint" id="envelopeHint">
-        Klik amplop untuk membukanya ♡
+        Click the envelope to open ♡
     </p>
 
     <button class="next-btn" onclick="showPage(2)">
-        Buka Suratku ♡
+        Open Your Letter ♡
     </button>
 
 </section>
 
-<!-- HALAMAN 2: SURAT -->
+<!-- PAGE 2: LETTER -->
 
 <section class="page" id="page2">
 
     <p class="small-text">A letter from Lisa</p>
 
-    <h1>Untuk Sayangkuu 🤍</h1>
+    <h1>To My Favorite Person 🤍</h1>
 
     <br>
 
@@ -398,25 +391,25 @@ h1 {
     </div>
 
     <button class="next-btn" onclick="showPage(3)">
-        Lihat Kenangan Kita ♡
+        Our Little Memories ♡
     </button>
 
 </section>
 
-<!-- HALAMAN 3: FOTO -->
+<!-- PAGE 3: PHOTO ALBUM -->
 
 <section class="page" id="page3">
 
     <p class="small-text">Our little memories</p>
 
-    <h1>Potongan Cerita Kita ♡</h1>
+    <h1>A Collection of Us ♡</h1>
 
     <p class="description">
-        Beberapa kenangan kecil yang selalu Lisa simpan.
+        Little moments that mean so much.
     </p>
 
     <div class="polaroid" id="polaroid">
-        <img src="images/foto1.jpeg" id="photo" alt="Kenangan kita">
+        <img src="images/foto1.jpeg" id="photo" alt="Our memory">
         <div class="polaroid-caption" id="photoCaption">
             our little memory ♡
         </div>
@@ -425,17 +418,17 @@ h1 {
     <div class="photo-count" id="photoCount">01 / 06</div>
 
     <div class="photo-controls">
-        <button onclick="previousPhoto()">← Sebelumnya</button>
-        <button onclick="nextPhoto()">Selanjutnya →</button>
+        <button onclick="previousPhoto()">← Previous</button>
+        <button onclick="nextPhoto()">Next →</button>
     </div>
 
     <button class="next-btn" onclick="showPage(4)">
-        Lanjut ke Akhir ♡
+        Continue Our Story ♡
     </button>
 
 </section>
 
-<!-- HALAMAN 4: PENUTUP BAHASA INDONESIA -->
+<!-- PAGE 4: ENDING -->
 
 <section class="page" id="page4">
 
@@ -443,7 +436,7 @@ h1 {
 
         <div class="ending-stars">✦　⋆　✧　⋆　✦</div>
 
-        <p class="small-text">Dan cerita kita terus berlanjut...</p>
+        <p class="small-text">And our story continues...</p>
 
         <h1 class="ending-title">
             Cerita Kita Belum Selesai di Sini Ya Sayangggg 🤍
@@ -460,13 +453,13 @@ h1 {
         </p>
 
         <p class="ending-signature">
-            Dengan penuh cinta, Lisa 🤍
+            With love, Lisa 🤍
         </p>
 
         <div class="ending-stars">⋆　✧　♡　✧　⋆</div>
 
         <button class="next-btn" onclick="showPage(1)">
-            Baca Cerita Kita Lagi ♡
+            Read Our Story Again ♡
         </button>
 
     </div>
@@ -475,7 +468,7 @@ h1 {
 
 <script>
 
-/* NAVIGASI HALAMAN */
+/* PAGE NAVIGATION */
 
 function showPage(number) {
 
@@ -495,7 +488,7 @@ function showPage(number) {
     }
 }
 
-/* AMPLOP */
+/* ENVELOPE */
 
 let envelopeOpened = false;
 
@@ -509,11 +502,11 @@ function openEnvelope() {
     envelopeOpened = !envelopeOpened;
 
     hint.textContent = envelopeOpened
-        ? "Surat kecil dari Lisa untuk sayang 🤍"
-        : "Klik amplop untuk membukanya ♡";
+        ? "A little letter just for you 🤍"
+        : "Click the envelope to open ♡";
 }
 
-/* ANIMASI MENGETIK */
+/* TYPING LETTER */
 
 const letter = `HAPPY ANNIVERSARY KE 3 TAHUNNN YAAA
 
@@ -543,10 +536,8 @@ function startTyping() {
     function type() {
 
         if (index < letter.length) {
-
             output.textContent += letter.charAt(index);
             index++;
-
             setTimeout(type, 22);
         }
     }
@@ -554,7 +545,7 @@ function startTyping() {
     type();
 }
 
-/* FOTO POLAROID */
+/* POLAROID PHOTOS */
 
 const photos = [
     "images/foto1.jpeg",
@@ -591,27 +582,21 @@ function updatePhoto() {
         " / " + String(photos.length).padStart(2, "0");
 
     polaroid.style.animation = "none";
-
     void polaroid.offsetWidth;
-
     polaroid.style.animation = "polaroidAppear .8s ease";
 }
 
 function nextPhoto() {
-
     currentPhoto = (currentPhoto + 1) % photos.length;
-
     updatePhoto();
 }
 
 function previousPhoto() {
-
     currentPhoto = (currentPhoto - 1 + photos.length) % photos.length;
-
     updatePhoto();
 }
 
-/* MUSIK */
+/* BACKGROUND MUSIC */
 
 let musicPlaying = false;
 
@@ -623,43 +608,32 @@ function toggleMusic() {
     if (!musicPlaying) {
 
         music.play().then(() => {
-
             musicPlaying = true;
             button.textContent = "♫ Music On";
-
         }).catch(() => {
-
-            button.textContent = "♫ Coba Lagi";
-
+            button.textContent = "♫ Try Again";
         });
 
     } else {
 
         music.pause();
-
         musicPlaying = false;
-
         button.textContent = "♫ Music Off";
     }
 }
 
-/* HATI DAN BINTANG MELAYANG */
+/* FLOATING HEARTS AND STARS */
 
 function createFloating() {
 
     const item = document.createElement("div");
 
     item.className = "floating";
-
     item.textContent = Math.random() > 0.5 ? "♡" : "✦";
 
     item.style.left = Math.random() * 100 + "vw";
-
-    item.style.fontSize =
-        (14 + Math.random() * 16) + "px";
-
-    item.style.animationDuration =
-        (7 + Math.random() * 6) + "s";
+    item.style.fontSize = (14 + Math.random() * 16) + "px";
+    item.style.animationDuration = (7 + Math.random() * 6) + "s";
 
     document.body.appendChild(item);
 
