@@ -4,9 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Little Story 🤍</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Cerita Kita 🤍</title>
 
 <style>
 * {
@@ -18,329 +16,329 @@
 body {
     background: #080D24;
     color: #E8E1D8;
-    font-family: 'Poppins', sans-serif;
+    font-family: Georgia, serif;
     min-height: 100vh;
+    overflow-x: hidden;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
 }
 
 header {
-    padding: 23px 7%;
+    width: 100%;
+    padding: 22px 7%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 10;
 }
 
 .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
+    color: #E8E1D8;
+    font-size: 20px;
+    letter-spacing: 2px;
 }
 
 .music-btn {
     background: transparent;
-    color: #E8E1D8;
     border: 1px solid #587D99;
+    color: #E8E1D8;
+    padding: 10px 17px;
     border-radius: 30px;
-    padding: 10px 18px;
-    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 1px;
 }
 
 .page {
     display: none;
-    min-height: 82vh;
-    padding: 45px 20px;
-    justify-content: center;
-    align-items: center;
+    min-height: calc(100vh - 75px);
+    padding: 45px 20px 65px;
     text-align: center;
-    animation: fade 0.7s ease;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
 }
 
 .page.active {
     display: flex;
+    animation: fadeIn 1s ease;
 }
 
-@keyframes fade {
-    from {opacity: 0; transform: translateY(15px);}
-    to {opacity: 1; transform: translateY(0);}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.subtitle {
+.small-text {
     color: #B49A82;
     letter-spacing: 4px;
+    text-transform: uppercase;
     font-size: 11px;
     margin-bottom: 20px;
 }
 
-h1, h2 {
-    font-family: 'Playfair Display', serif;
-    font-weight: normal;
-}
-
 h1 {
-    font-size: clamp(36px, 7vw, 62px);
+    font-weight: normal;
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.3;
 }
 
-h2 {
-    font-size: clamp(27px, 5vw, 40px);
+.description {
+    color: #B8B8C5;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    line-height: 1.8;
 }
 
-button {
-    background: #587D99;
-    color: white;
+.next-btn {
+    margin-top: 35px;
+    padding: 14px 28px;
+    background: #B49A82;
+    color: #080D24;
     border: none;
     border-radius: 30px;
-    padding: 13px 28px;
-    cursor: pointer;
-    font-family: inherit;
-    margin-top: 25px;
-    transition: 0.3s;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: .3s;
 }
 
-button:hover {
-    background: #B49A82;
+.next-btn:hover {
+    background: #E8E1D8;
     transform: translateY(-3px);
 }
 
 /* AMPLOP */
 
 .envelope {
-    width: 240px;
-    height: 155px;
+    width: 220px;
+    height: 145px;
     background: #B49A82;
-    margin: 45px auto 25px;
     position: relative;
+    margin: 45px auto 30px;
     border-radius: 5px;
-    box-shadow: 0 15px 40px #0005;
+    cursor: pointer;
+    box-shadow: 0 15px 40px #0006;
+    transition: .5s;
 }
 
-.envelope:before {
+.envelope::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    border-left: 120px solid transparent;
-    border-right: 120px solid transparent;
-    border-top: 90px solid #D0B69E;
+    border-left: 110px solid transparent;
+    border-right: 110px solid transparent;
+    border-top: 85px solid #D1B69C;
     transform-origin: top;
-    transition: 0.8s;
-    z-index: 2;
+    transition: .6s;
+    z-index: 3;
 }
 
-.envelope.open:before {
+.envelope::after {
+    content: "♡";
+    position: absolute;
+    color: #352820;
+    font-size: 35px;
+    top: 48px;
+    left: 93px;
+    z-index: 4;
+}
+
+.envelope.open::before {
     transform: rotateX(180deg);
 }
 
-.envelope:after {
-    content: "♡";
-    color: #352820;
-    font-size: 40px;
-    position: absolute;
-    top: 65px;
-    left: 50%;
-    transform: translateX(-50%);
+.envelope-hint {
+    color: #B49A82;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-top: 15px;
 }
 
 /* SURAT */
 
-.paper {
-    width: min(700px, 95%);
+.letter-paper {
+    width: min(650px, 92%);
     background: #E8E1D8;
     color: #352820;
-    padding: clamp(25px, 6vw, 55px);
+    padding: 45px 38px;
+    border-radius: 4px;
+    box-shadow: 0 15px 45px #0005;
     text-align: left;
-    border-radius: 5px;
     line-height: 2;
-    box-shadow: 0 20px 60px #0005;
-}
-
-.paper h2 {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-#letterText {
+    font-size: 15px;
     white-space: pre-line;
-    font-size: 14px;
+    min-height: 300px;
 }
 
-.signature {
-    text-align: right;
-    margin-top: 25px;
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
+.letter-greeting {
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #674E40;
 }
 
 /* POLAROID */
 
-#page3 {
-    position: relative;
-    overflow: hidden;
-    background: radial-gradient(circle at center, #202943, #080D24 75%);
-}
-
-.photo-area {
-    width: min(650px, 95%);
-    position: relative;
-    z-index: 2;
-}
-
-.photo-area h2 {
-    margin-bottom: 10px;
-}
-
 .polaroid {
-    width: min(330px, 85%);
-    margin: 35px auto 25px;
-    padding: 13px 13px 55px;
-    background: #E8E1D8;
-    border-radius: 4px;
-    box-shadow: 0 18px 50px rgba(0,0,0,0.4);
+    background: #F5F0E9;
+    width: min(310px, 85vw);
+    padding: 13px 13px 22px;
+    margin: 35px auto 10px;
+    box-shadow: 0 15px 40px #0007;
     transform: rotate(-3deg);
-    transition: transform 0.5s, opacity 0.5s;
-    animation: polaroidEnter 0.8s ease;
+    transition: .5s;
+    animation: polaroidAppear .8s ease;
 }
 
-.polaroid img {
-    display: block;
-    width: 100%;
-    height: 330px;
-    object-fit: cover;
-    background: #D5C9BA;
-}
-
-.polaroid-caption {
-    color: #352820;
-    font-family: 'Playfair Display', serif;
-    font-size: 19px;
-    margin-top: 17px;
-    text-align: center;
-}
-
-.polaroid.changing {
-    opacity: 0;
-    transform: translateX(50px) rotate(8deg);
-}
-
-@keyframes polaroidEnter {
+@keyframes polaroidAppear {
     from {
         opacity: 0;
-        transform: translateY(45px) rotate(8deg) scale(0.9);
+        transform: translateY(25px) rotate(5deg);
     }
     to {
         opacity: 1;
-        transform: translateY(0) rotate(-3deg) scale(1);
+        transform: translateY(0) rotate(-3deg);
     }
 }
 
-.photo-count {
-    color: #B49A82;
-    font-size: 12px;
-    margin-top: 10px;
+.polaroid img {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    display: block;
+    background: #D8D0C8;
+}
+
+.polaroid-caption {
+    color: #674E40;
+    font-family: cursive;
+    font-size: 18px;
+    margin-top: 17px;
 }
 
 .photo-controls {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
-.floating-decoration {
-    position: absolute;
-    color: #B49A82;
-    opacity: 0.4;
-    pointer-events: none;
-    animation: floatAround 5s ease-in-out infinite;
-}
-
-.heart-one {
-    top: 18%;
-    left: 12%;
-    font-size: 35px;
-}
-
-.heart-two {
-    bottom: 18%;
-    right: 12%;
-    font-size: 28px;
-    animation-delay: 1s;
-}
-
-.star-one {
-    top: 30%;
-    right: 17%;
-    font-size: 23px;
-    animation-delay: 2s;
-}
-
-.star-two {
-    bottom: 25%;
-    left: 17%;
-    font-size: 20px;
-    animation-delay: 0.5s;
-}
-
-@keyframes floatAround {
-    0%, 100% {
-        transform: translateY(0) rotate(0);
-    }
-    50% {
-        transform: translateY(-20px) rotate(12deg);
-    }
-}
-
-/* PENUTUP */
-
-.end-heart {
-    font-size: 65px;
-    color: #B49A82;
-    margin: 20px;
-}
-
-footer {
-    text-align: center;
-    padding: 25px;
+.photo-controls button {
+    background: transparent;
+    border: 1px solid #B49A82;
+    color: #E8E1D8;
+    padding: 11px 20px;
+    border-radius: 25px;
     font-size: 12px;
+}
+
+.photo-count {
     color: #B49A82;
+    font-size: 12px;
+    margin-top: 15px;
+    letter-spacing: 2px;
+}
+
+/* HALAMAN PENUTUP */
+
+.ending-content {
+    max-width: 700px;
+    margin: auto;
+    padding: 35px 20px;
+}
+
+.ending-stars {
+    color: #B49A82;
+    font-size: 23px;
+    margin: 25px 0;
+    animation: starGlow 2s infinite alternate;
+}
+
+@keyframes starGlow {
+    from { opacity: .4; }
+    to { opacity: 1; }
+}
+
+.ending-title {
+    font-family: Georgia, serif;
+    font-size: clamp(30px, 5vw, 46px);
+    line-height: 1.4;
+    font-weight: normal;
+    color: #E8E1D8;
+}
+
+.ending-divider {
+    width: 65px;
+    height: 1px;
+    background: #B49A82;
+    margin: 30px auto;
+}
+
+.ending-letter {
+    font-size: 16px;
+    line-height: 2.2;
+    color: #E8E1D8;
+}
+
+.ending-signature {
+    color: #B49A82;
+    font-style: italic;
+    margin-top: 30px;
+}
+
+/* HATI MELAYANG */
+
+.floating {
+    position: fixed;
+    bottom: -30px;
+    color: #B49A82;
+    opacity: .5;
+    pointer-events: none;
+    animation: floatUp 9s linear infinite;
+    z-index: 0;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+    20% { opacity: .5; }
+    100% {
+        transform: translateY(-110vh) rotate(180deg);
+        opacity: 0;
+    }
 }
 
 @media(max-width: 600px) {
     header {
-        padding: 20px 5%;
+        padding: 18px 5%;
     }
 
     .logo {
-        font-size: 20px;
+        font-size: 16px;
     }
 
-    .envelope {
-        width: 210px;
-        height: 140px;
-    }
-
-    .envelope:before {
-        border-left-width: 105px;
-        border-right-width: 105px;
-        border-top-width: 80px;
-    }
-
-    .envelope:after {
-        top: 55px;
-    }
-
-    .polaroid {
-        width: min(290px, 85%);
+    .letter-paper {
+        padding: 30px 23px;
+        font-size: 14px;
     }
 
     .polaroid img {
-        height: 290px;
-    }
-
-    .heart-one {left: 4%;}
-    .heart-two {right: 4%;}
-    .star-one {right: 5%;}
-    .star-two {left: 5%;}
-
-    #letterText {
-        font-size: 13px;
+        height: 300px;
     }
 }
 </style>
@@ -350,256 +348,327 @@ footer {
 
 <header>
     <div class="logo">our little story.</div>
-    <button class="music-btn" id="musicButton">♫ Music</button>
+
+    <button class="music-btn" onclick="toggleMusic()" id="musicButton">
+        ♫ Music Off
+    </button>
 </header>
+
+<audio id="backgroundMusic" loop>
+    <source src="music/song.mp3" type="audio/mpeg">
+</audio>
 
 <!-- HALAMAN 1: AMPLOP -->
 
 <section class="page active" id="page1">
-    <div>
-        <p class="subtitle">A SPECIAL LETTER FOR YOU</p>
-        <h1>Happy 3rd Anniversary 🤍</h1>
 
-        <p style="margin-top:15px;color:#B49A82;">
-            Something from my heart, just for you.
-        </p>
+    <p class="small-text">A little something for you</p>
 
-        <div class="envelope" id="envelope"></div>
+    <h1>Happy 3rd Anniversary 🤍</h1>
 
-        <p style="color:#B49A82;font-size:13px;">
-            A little letter is waiting for you...
-        </p>
+    <p class="description">
+        Ada sesuatu yang Lisa siapkan untuk sayang...
+    </p>
 
-        <button onclick="openEnvelope()">Open Your Letter ♡</button>
-    </div>
+    <div class="envelope" id="envelope" onclick="openEnvelope()"></div>
+
+    <p class="envelope-hint" id="envelopeHint">
+        Klik amplop untuk membukanya ♡
+    </p>
+
+    <button class="next-btn" onclick="showPage(2)">
+        Buka Suratku ♡
+    </button>
+
 </section>
 
 <!-- HALAMAN 2: SURAT -->
 
 <section class="page" id="page2">
-    <div class="paper">
-        <h2>Happy Anniversary, Sayangku 🤍</h2>
 
+    <p class="small-text">A letter from Lisa</p>
+
+    <h1>Untuk Sayangkuu 🤍</h1>
+
+    <br>
+
+    <div class="letter-paper">
+        <div class="letter-greeting">HAII SAYANGKUUUUU</div>
         <div id="letterText"></div>
-
-        <div class="signature" id="signature" style="display:none;">
-            With love,<br>Lisa ♡
-        </div>
-
-        <div style="text-align:center;">
-            <button id="letterNext" onclick="showPage(3)" style="display:none;">
-                Next: Our Memories →
-            </button>
-        </div>
     </div>
+
+    <button class="next-btn" onclick="showPage(3)">
+        Lihat Kenangan Kita ♡
+    </button>
+
 </section>
 
-<!-- HALAMAN 3: POLAROID -->
+<!-- HALAMAN 3: FOTO -->
 
 <section class="page" id="page3">
 
-    <span class="floating-decoration heart-one">♡</span>
-    <span class="floating-decoration heart-two">♡</span>
-    <span class="floating-decoration star-one">✦</span>
-    <span class="floating-decoration star-two">✧</span>
+    <p class="small-text">Our little memories</p>
 
-    <div class="photo-area">
+    <h1>Potongan Cerita Kita ♡</h1>
 
-        <p class="subtitle">A COLLECTION OF US</p>
-        <h2>Our Little Memories</h2>
+    <p class="description">
+        Beberapa kenangan kecil yang selalu Lisa simpan.
+    </p>
 
-        <div class="polaroid" id="polaroid">
-            <img id="memoryPhoto" src="images/foto1.jpeg" alt="Our memory">
-
-            <p class="polaroid-caption" id="polaroidCaption">
-                Our First Memory ♡
-            </p>
+    <div class="polaroid" id="polaroid">
+        <img src="images/foto1.jpeg" id="photo" alt="Kenangan kita">
+        <div class="polaroid-caption" id="photoCaption">
+            our little memory ♡
         </div>
-
-        <p class="photo-count" id="photoCount">1 / 6</p>
-
-        <div class="photo-controls">
-            <button onclick="previousPhoto()" id="previousBtn" style="display:none;">
-                ← Back
-            </button>
-
-            <button onclick="nextPhoto()" id="nextPhotoBtn">
-                Next Memory →
-            </button>
-        </div>
-
     </div>
+
+    <div class="photo-count" id="photoCount">01 / 06</div>
+
+    <div class="photo-controls">
+        <button onclick="previousPhoto()">← Sebelumnya</button>
+        <button onclick="nextPhoto()">Selanjutnya →</button>
+    </div>
+
+    <button class="next-btn" onclick="showPage(4)">
+        Lanjut ke Akhir ♡
+    </button>
+
 </section>
 
-<!-- HALAMAN 4: PENUTUP -->
+<!-- HALAMAN 4: PENUTUP BAHASA INDONESIA -->
 
 <section class="page" id="page4">
-    <div>
-        <p class="subtitle">AND OUR STORY CONTINUES</p>
 
-        <div class="end-heart">♡</div>
+    <div class="ending-content">
 
-        <h1>To More Years With You</h1>
+        <div class="ending-stars">✦　⋆　✧　⋆　✦</div>
 
-        <p style="margin-top:25px;line-height:2;color:#B49A82;">
-            Three years down, forever to go.<br>
-            Thank you for being part of my story.
+        <p class="small-text">Dan cerita kita terus berlanjut...</p>
+
+        <h1 class="ending-title">
+            Cerita Kita Belum Selesai di Sini Ya Sayangggg 🤍
+        </h1>
+
+        <div class="ending-divider"></div>
+
+        <p class="ending-letter">
+            Terima kasihh yaa sudah menjadi bagiann terindahh dalamm
+            perjalanannnn di hidup Lisa. Masih banyak ceritaa, tawaa,
+            dan kenangan yangg penginn Lisa buat sama sayanggg.
+            Semogaa kita selaluu punya alasan untuk memilih satu sama lain,
+            hari ini, besok, dan seterusnya.
         </p>
 
-        <h2 style="margin-top:35px;">I LOVE YOU MORE, BABY 🤍</h2>
+        <p class="ending-signature">
+            Dengan penuh cinta, Lisa 🤍
+        </p>
 
-        <button onclick="showPage(1)">Read Again ♡</button>
+        <div class="ending-stars">⋆　✧　♡　✧　⋆</div>
+
+        <button class="next-btn" onclick="showPage(1)">
+            Baca Cerita Kita Lagi ♡
+        </button>
+
     </div>
+
 </section>
-
-<footer>Made with love, just for us ♡</footer>
-
-<audio id="backgroundMusic" loop>
-    <source src="music/song.mp3" type="audio/mpeg">
-</audio>
 
 <script>
 
 /* NAVIGASI HALAMAN */
 
 function showPage(number) {
+
     document.querySelectorAll(".page").forEach(page => {
         page.classList.remove("active");
     });
 
     document.getElementById("page" + number).classList.add("active");
-    window.scrollTo(0, 0);
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    if (number === 2) {
+        startTyping();
+    }
 }
 
-/* SURAT ANNIVERSARY */
+/* AMPLOP */
 
-const message = `HAII SAYANGKUUUUU!
+let envelopeOpened = false;
 
-HAPPY ANNIVERSARY KE 3 TAHUNNN YAAA 🤍
+function openEnvelope() {
+
+    const envelope = document.getElementById("envelope");
+    const hint = document.getElementById("envelopeHint");
+
+    envelope.classList.toggle("open");
+
+    envelopeOpened = !envelopeOpened;
+
+    hint.textContent = envelopeOpened
+        ? "Surat kecil dari Lisa untuk sayang 🤍"
+        : "Klik amplop untuk membukanya ♡";
+}
+
+/* ANIMASI MENGETIK */
+
+const letter = `HAPPY ANNIVERSARY KE 3 TAHUNNN YAAA
 
 semogaa untukk kedepannnyaa kita bisaa teruss sama sama sampaiii sesuaii keinginan kitaa yaa yaituu sampai menua...
 
-meskipun perjalanan kita banyak bangettt rintangann nya, masalahnya, tapii kita tetep selaluuu pilih untukk kembalii bersama sama lagii..
+meskipun perjalanan kita banyak bangetttt rintangann nya, masalahnya, tapii kita tetep selaluuu pilih untukk kembalii bersama sama lagii..
 
-terimakasihh yaa sayangkuu bocilnaa Lisaaa yang selaluu mengusahakan apapunn untukk Lisa, padahall kann Lisa ribet yaa tapii sayanggg tetepp mau bertahannn..
+terimakasihh yaa sayangkuu bocilnaa lisaaa yang selaluu mengusahakan apapunn untukk lisaa, padahall kann lisa ribet yaa tapii sayanggg tetepp mau bertahannn..
 
 lisaa mauu ngucapin banyak banyakkk banyakkkkkk terimakasihh untukk sayanggg yang selaluu ada disampingg akuu, dampinginn aku, ngingetinn aku.. terimakasihhh banyakk yaaa sayangkuuu
 
-tapii Lisa jugaa mauu minta maaf yaa, Lisa kadangg nyebelinn, suka tibaa tiba cuekk, ubah ubah mood, mestii itu bikinn sayangkuu bingungg dan frustasi yaa... Lisa minta maaff yaaa sayanggg
+tapii lisa jugaa mau minta maaf yaa, lisa kadangg nyebelinn, suka tibaa" cuekk, ubah ubah mood, mestii itu bikinn sayangkuu bingungg dan frustasi yaa... lisa minta maaff yaaa sayanggg
 
-lisaa mauu ngucapinn kalo Lisa sayangg bangettt bangetttt bangettttt samaa bocillll, tetepp jadii bocilnaa Lisa yaa jangan pernahh berubahh, Lisa selalu takutt kalo bocil tiba tiba berubahh..
-
-I LOVE U MORE BABYY 🤍`;
+lisa mauu ngucapinn kalo lisa sayangg bangettt bangetttt bangettttt samaa bocillll, tetepp jadii bocilnaa lisa yaa jangan pernahh berubahh, lisa selalu takutt kalo bocil tiba tiba berubahh.. I LOVE U MORE BABYY🤍`;
 
 let typingStarted = false;
 
-function openEnvelope() {
-    document.getElementById("envelope").classList.add("open");
+function startTyping() {
 
-    setTimeout(() => {
-        showPage(2);
+    if (typingStarted) return;
 
-        if (!typingStarted) {
-            typingStarted = true;
-            let index = 0;
+    typingStarted = true;
 
-            function type() {
-                const target = document.getElementById("letterText");
+    const output = document.getElementById("letterText");
+    let index = 0;
 
-                if (index < message.length) {
-                    target.textContent += message.charAt(index);
-                    index++;
-                    setTimeout(type, 25);
-                } else {
-                    document.getElementById("signature").style.display = "block";
-                    document.getElementById("letterNext").style.display = "inline-block";
-                }
-            }
+    function type() {
 
-            type();
+        if (index < letter.length) {
+
+            output.textContent += letter.charAt(index);
+            index++;
+
+            setTimeout(type, 22);
         }
-    }, 650);
+    }
+
+    type();
 }
 
-/* POLAROID PHOTO ALBUM */
+/* FOTO POLAROID */
 
 const photos = [
-    {src:"images/foto1.jpeg", caption:"Our First Memory ♡"},
-    {src:"images/foto2.jpeg", caption:"A Special Day ♡"},
-    {src:"images/foto3.jpeg", caption:"Little Moments ♡"},
-    {src:"images/foto4.jpeg", caption:"With You ♡"},
-    {src:"images/foto5.jpeg", caption:"My Favorite Person ♡"},
-    {src:"images/foto6.jpeg", caption:"Forever Memories ♡"}
+    "images/foto1.jpeg",
+    "images/foto2.jpeg",
+    "images/foto3.jpeg",
+    "images/foto4.jpeg",
+    "images/foto5.jpeg",
+    "images/foto6.jpeg"
 ];
 
-let photoIndex = 0;
+const captions = [
+    "our little memory ♡",
+    "one of my favorite days ♡",
+    "with my favorite person ♡",
+    "little moments, big memories ♡",
+    "my happiest place ♡",
+    "always you ♡"
+];
+
+let currentPhoto = 0;
 
 function updatePhoto() {
-    const card = document.getElementById("polaroid");
-    const photo = document.getElementById("memoryPhoto");
 
-    card.classList.add("changing");
+    const photo = document.getElementById("photo");
+    const polaroid = document.getElementById("polaroid");
 
-    setTimeout(() => {
-        photo.src = photos[photoIndex].src;
+    photo.src = photos[currentPhoto];
 
-        document.getElementById("polaroidCaption").textContent =
-            photos[photoIndex].caption;
+    document.getElementById("photoCaption").textContent =
+        captions[currentPhoto];
 
-        document.getElementById("photoCount").textContent =
-            (photoIndex + 1) + " / " + photos.length;
+    document.getElementById("photoCount").textContent =
+        String(currentPhoto + 1).padStart(2, "0") +
+        " / " + String(photos.length).padStart(2, "0");
 
-        document.getElementById("previousBtn").style.display =
-            photoIndex === 0 ? "none" : "inline-block";
+    polaroid.style.animation = "none";
 
-        document.getElementById("nextPhotoBtn").textContent =
-            photoIndex === photos.length - 1
-                ? "Finish ♡"
-                : "Next Memory →";
+    void polaroid.offsetWidth;
 
-        card.classList.remove("changing");
-
-        card.style.animation = "none";
-        void card.offsetWidth;
-        card.style.animation = "polaroidEnter 0.8s ease";
-
-    }, 350);
+    polaroid.style.animation = "polaroidAppear .8s ease";
 }
 
 function nextPhoto() {
-    if (photoIndex < photos.length - 1) {
-        photoIndex++;
-        updatePhoto();
-    } else {
-        showPage(4);
-    }
+
+    currentPhoto = (currentPhoto + 1) % photos.length;
+
+    updatePhoto();
 }
 
 function previousPhoto() {
-    if (photoIndex > 0) {
-        photoIndex--;
-        updatePhoto();
-    }
+
+    currentPhoto = (currentPhoto - 1 + photos.length) % photos.length;
+
+    updatePhoto();
 }
 
 /* MUSIK */
 
-const music = document.getElementById("backgroundMusic");
-const musicButton = document.getElementById("musicButton");
+let musicPlaying = false;
 
-musicButton.addEventListener("click", async () => {
-    if (music.paused) {
-        try {
-            await music.play();
-            musicButton.textContent = "♫ Music On";
-        } catch (error) {
-            musicButton.textContent = "Music unavailable";
-        }
+function toggleMusic() {
+
+    const music = document.getElementById("backgroundMusic");
+    const button = document.getElementById("musicButton");
+
+    if (!musicPlaying) {
+
+        music.play().then(() => {
+
+            musicPlaying = true;
+            button.textContent = "♫ Music On";
+
+        }).catch(() => {
+
+            button.textContent = "♫ Coba Lagi";
+
+        });
+
     } else {
+
         music.pause();
-        musicButton.textContent = "♫ Music";
+
+        musicPlaying = false;
+
+        button.textContent = "♫ Music Off";
     }
-});
+}
+
+/* HATI DAN BINTANG MELAYANG */
+
+function createFloating() {
+
+    const item = document.createElement("div");
+
+    item.className = "floating";
+
+    item.textContent = Math.random() > 0.5 ? "♡" : "✦";
+
+    item.style.left = Math.random() * 100 + "vw";
+
+    item.style.fontSize =
+        (14 + Math.random() * 16) + "px";
+
+    item.style.animationDuration =
+        (7 + Math.random() * 6) + "s";
+
+    document.body.appendChild(item);
+
+    setTimeout(() => {
+        item.remove();
+    }, 13000);
+}
+
+setInterval(createFloating, 1200);
 
 </script>
 
