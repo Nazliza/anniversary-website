@@ -1,0 +1,607 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Little Story 🤍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080D24;
+    color: #E8E1D8;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+}
+
+header {
+    padding: 23px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+}
+
+.music-btn {
+    background: transparent;
+    color: #E8E1D8;
+    border: 1px solid #587D99;
+    border-radius: 30px;
+    padding: 10px 18px;
+    cursor: pointer;
+}
+
+.page {
+    display: none;
+    min-height: 82vh;
+    padding: 45px 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation: fade 0.7s ease;
+}
+
+.page.active {
+    display: flex;
+}
+
+@keyframes fade {
+    from {opacity: 0; transform: translateY(15px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.subtitle {
+    color: #B49A82;
+    letter-spacing: 4px;
+    font-size: 11px;
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: clamp(36px, 7vw, 62px);
+}
+
+h2 {
+    font-size: clamp(27px, 5vw, 40px);
+}
+
+button {
+    background: #587D99;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 13px 28px;
+    cursor: pointer;
+    font-family: inherit;
+    margin-top: 25px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #B49A82;
+    transform: translateY(-3px);
+}
+
+/* AMPLOP */
+
+.envelope {
+    width: 240px;
+    height: 155px;
+    background: #B49A82;
+    margin: 45px auto 25px;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0 15px 40px #0005;
+}
+
+.envelope:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 120px solid transparent;
+    border-right: 120px solid transparent;
+    border-top: 90px solid #D0B69E;
+    transform-origin: top;
+    transition: 0.8s;
+    z-index: 2;
+}
+
+.envelope.open:before {
+    transform: rotateX(180deg);
+}
+
+.envelope:after {
+    content: "♡";
+    color: #352820;
+    font-size: 40px;
+    position: absolute;
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* SURAT */
+
+.paper {
+    width: min(700px, 95%);
+    background: #E8E1D8;
+    color: #352820;
+    padding: clamp(25px, 6vw, 55px);
+    text-align: left;
+    border-radius: 5px;
+    line-height: 2;
+    box-shadow: 0 20px 60px #0005;
+}
+
+.paper h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#letterText {
+    white-space: pre-line;
+    font-size: 14px;
+}
+
+.signature {
+    text-align: right;
+    margin-top: 25px;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+}
+
+/* POLAROID */
+
+#page3 {
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #202943, #080D24 75%);
+}
+
+.photo-area {
+    width: min(650px, 95%);
+    position: relative;
+    z-index: 2;
+}
+
+.photo-area h2 {
+    margin-bottom: 10px;
+}
+
+.polaroid {
+    width: min(330px, 85%);
+    margin: 35px auto 25px;
+    padding: 13px 13px 55px;
+    background: #E8E1D8;
+    border-radius: 4px;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.4);
+    transform: rotate(-3deg);
+    transition: transform 0.5s, opacity 0.5s;
+    animation: polaroidEnter 0.8s ease;
+}
+
+.polaroid img {
+    display: block;
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    background: #D5C9BA;
+}
+
+.polaroid-caption {
+    color: #352820;
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    margin-top: 17px;
+    text-align: center;
+}
+
+.polaroid.changing {
+    opacity: 0;
+    transform: translateX(50px) rotate(8deg);
+}
+
+@keyframes polaroidEnter {
+    from {
+        opacity: 0;
+        transform: translateY(45px) rotate(8deg) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(-3deg) scale(1);
+    }
+}
+
+.photo-count {
+    color: #B49A82;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.photo-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.floating-decoration {
+    position: absolute;
+    color: #B49A82;
+    opacity: 0.4;
+    pointer-events: none;
+    animation: floatAround 5s ease-in-out infinite;
+}
+
+.heart-one {
+    top: 18%;
+    left: 12%;
+    font-size: 35px;
+}
+
+.heart-two {
+    bottom: 18%;
+    right: 12%;
+    font-size: 28px;
+    animation-delay: 1s;
+}
+
+.star-one {
+    top: 30%;
+    right: 17%;
+    font-size: 23px;
+    animation-delay: 2s;
+}
+
+.star-two {
+    bottom: 25%;
+    left: 17%;
+    font-size: 20px;
+    animation-delay: 0.5s;
+}
+
+@keyframes floatAround {
+    0%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+    50% {
+        transform: translateY(-20px) rotate(12deg);
+    }
+}
+
+/* PENUTUP */
+
+.end-heart {
+    font-size: 65px;
+    color: #B49A82;
+    margin: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    font-size: 12px;
+    color: #B49A82;
+}
+
+@media(max-width: 600px) {
+    header {
+        padding: 20px 5%;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .envelope {
+        width: 210px;
+        height: 140px;
+    }
+
+    .envelope:before {
+        border-left-width: 105px;
+        border-right-width: 105px;
+        border-top-width: 80px;
+    }
+
+    .envelope:after {
+        top: 55px;
+    }
+
+    .polaroid {
+        width: min(290px, 85%);
+    }
+
+    .polaroid img {
+        height: 290px;
+    }
+
+    .heart-one {left: 4%;}
+    .heart-two {right: 4%;}
+    .star-one {right: 5%;}
+    .star-two {left: 5%;}
+
+    #letterText {
+        font-size: 13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">our little story.</div>
+    <button class="music-btn" id="musicButton">♫ Music</button>
+</header>
+
+<!-- HALAMAN 1: AMPLOP -->
+
+<section class="page active" id="page1">
+    <div>
+        <p class="subtitle">A SPECIAL LETTER FOR YOU</p>
+        <h1>Happy 3rd Anniversary 🤍</h1>
+
+        <p style="margin-top:15px;color:#B49A82;">
+            Something from my heart, just for you.
+        </p>
+
+        <div class="envelope" id="envelope"></div>
+
+        <p style="color:#B49A82;font-size:13px;">
+            A little letter is waiting for you...
+        </p>
+
+        <button onclick="openEnvelope()">Open Your Letter ♡</button>
+    </div>
+</section>
+
+<!-- HALAMAN 2: SURAT -->
+
+<section class="page" id="page2">
+    <div class="paper">
+        <h2>Happy Anniversary, Sayangku 🤍</h2>
+
+        <div id="letterText"></div>
+
+        <div class="signature" id="signature" style="display:none;">
+            With love,<br>Lisa ♡
+        </div>
+
+        <div style="text-align:center;">
+            <button id="letterNext" onclick="showPage(3)" style="display:none;">
+                Next: Our Memories →
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- HALAMAN 3: POLAROID -->
+
+<section class="page" id="page3">
+
+    <span class="floating-decoration heart-one">♡</span>
+    <span class="floating-decoration heart-two">♡</span>
+    <span class="floating-decoration star-one">✦</span>
+    <span class="floating-decoration star-two">✧</span>
+
+    <div class="photo-area">
+
+        <p class="subtitle">A COLLECTION OF US</p>
+        <h2>Our Little Memories</h2>
+
+        <div class="polaroid" id="polaroid">
+            <img id="memoryPhoto" src="images/foto1.jpeg" alt="Our memory">
+
+            <p class="polaroid-caption" id="polaroidCaption">
+                Our First Memory ♡
+            </p>
+        </div>
+
+        <p class="photo-count" id="photoCount">1 / 6</p>
+
+        <div class="photo-controls">
+            <button onclick="previousPhoto()" id="previousBtn" style="display:none;">
+                ← Back
+            </button>
+
+            <button onclick="nextPhoto()" id="nextPhotoBtn">
+                Next Memory →
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<!-- HALAMAN 4: PENUTUP -->
+
+<section class="page" id="page4">
+    <div>
+        <p class="subtitle">AND OUR STORY CONTINUES</p>
+
+        <div class="end-heart">♡</div>
+
+        <h1>To More Years With You</h1>
+
+        <p style="margin-top:25px;line-height:2;color:#B49A82;">
+            Three years down, forever to go.<br>
+            Thank you for being part of my story.
+        </p>
+
+        <h2 style="margin-top:35px;">I LOVE YOU MORE, BABY 🤍</h2>
+
+        <button onclick="showPage(1)">Read Again ♡</button>
+    </div>
+</section>
+
+<footer>Made with love, just for us ♡</footer>
+
+<audio id="backgroundMusic" loop>
+    <source src="music/song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+/* NAVIGASI HALAMAN */
+
+function showPage(number) {
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById("page" + number).classList.add("active");
+    window.scrollTo(0, 0);
+}
+
+/* SURAT ANNIVERSARY */
+
+const message = `HAII SAYANGKUUUUU!
+
+HAPPY ANNIVERSARY KE 3 TAHUNNN YAAA 🤍
+
+semogaa untukk kedepannnyaa kita bisaa teruss sama sama sampaiii sesuaii keinginan kitaa yaa yaituu sampai menua...
+
+meskipun perjalanan kita banyak bangettt rintangann nya, masalahnya, tapii kita tetep selaluuu pilih untukk kembalii bersama sama lagii..
+
+terimakasihh yaa sayangkuu bocilnaa Lisaaa yang selaluu mengusahakan apapunn untukk Lisa, padahall kann Lisa ribet yaa tapii sayanggg tetepp mau bertahannn..
+
+lisaa mauu ngucapin banyak banyakkk banyakkkkkk terimakasihh untukk sayanggg yang selaluu ada disampingg akuu, dampinginn aku, ngingetinn aku.. terimakasihhh banyakk yaaa sayangkuuu
+
+tapii Lisa jugaa mauu minta maaf yaa, Lisa kadangg nyebelinn, suka tibaa tiba cuekk, ubah ubah mood, mestii itu bikinn sayangkuu bingungg dan frustasi yaa... Lisa minta maaff yaaa sayanggg
+
+lisaa mauu ngucapinn kalo Lisa sayangg bangettt bangetttt bangettttt samaa bocillll, tetepp jadii bocilnaa Lisa yaa jangan pernahh berubahh, Lisa selalu takutt kalo bocil tiba tiba berubahh..
+
+I LOVE U MORE BABYY 🤍`;
+
+let typingStarted = false;
+
+function openEnvelope() {
+    document.getElementById("envelope").classList.add("open");
+
+    setTimeout(() => {
+        showPage(2);
+
+        if (!typingStarted) {
+            typingStarted = true;
+            let index = 0;
+
+            function type() {
+                const target = document.getElementById("letterText");
+
+                if (index < message.length) {
+                    target.textContent += message.charAt(index);
+                    index++;
+                    setTimeout(type, 25);
+                } else {
+                    document.getElementById("signature").style.display = "block";
+                    document.getElementById("letterNext").style.display = "inline-block";
+                }
+            }
+
+            type();
+        }
+    }, 650);
+}
+
+/* POLAROID PHOTO ALBUM */
+
+const photos = [
+    {src:"images/foto1.jpeg", caption:"Our First Memory ♡"},
+    {src:"images/foto2.jpeg", caption:"A Special Day ♡"},
+    {src:"images/foto3.jpeg", caption:"Little Moments ♡"},
+    {src:"images/foto4.jpeg", caption:"With You ♡"},
+    {src:"images/foto5.jpeg", caption:"My Favorite Person ♡"},
+    {src:"images/foto6.jpeg", caption:"Forever Memories ♡"}
+];
+
+let photoIndex = 0;
+
+function updatePhoto() {
+    const card = document.getElementById("polaroid");
+    const photo = document.getElementById("memoryPhoto");
+
+    card.classList.add("changing");
+
+    setTimeout(() => {
+        photo.src = photos[photoIndex].src;
+
+        document.getElementById("polaroidCaption").textContent =
+            photos[photoIndex].caption;
+
+        document.getElementById("photoCount").textContent =
+            (photoIndex + 1) + " / " + photos.length;
+
+        document.getElementById("previousBtn").style.display =
+            photoIndex === 0 ? "none" : "inline-block";
+
+        document.getElementById("nextPhotoBtn").textContent =
+            photoIndex === photos.length - 1
+                ? "Finish ♡"
+                : "Next Memory →";
+
+        card.classList.remove("changing");
+
+        card.style.animation = "none";
+        void card.offsetWidth;
+        card.style.animation = "polaroidEnter 0.8s ease";
+
+    }, 350);
+}
+
+function nextPhoto() {
+    if (photoIndex < photos.length - 1) {
+        photoIndex++;
+        updatePhoto();
+    } else {
+        showPage(4);
+    }
+}
+
+function previousPhoto() {
+    if (photoIndex > 0) {
+        photoIndex--;
+        updatePhoto();
+    }
+}
+
+/* MUSIK */
+
+const music = document.getElementById("backgroundMusic");
+const musicButton = document.getElementById("musicButton");
+
+musicButton.addEventListener("click", async () => {
+    if (music.paused) {
+        try {
+            await music.play();
+            musicButton.textContent = "♫ Music On";
+        } catch (error) {
+            musicButton.textContent = "Music unavailable";
+        }
+    } else {
+        music.pause();
+        musicButton.textContent = "♫ Music";
+    }
+});
+
+</script>
+
+</body>
+</html>

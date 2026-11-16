@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Little Story</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #080D24;
+            color: #E8E1D8;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            width: 100%;
+            padding: 25px 7%;
+            background: #080D24;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #E8E1D8;
+            font-family: 'Playfair Display', serif;
+            font-size: 27px;
+            text-decoration: none;
+        }
+
+        .music-button {
+            background: transparent;
+            color: #E8E1D8;
+            border: 1px solid #587D99;
+            border-radius: 30px;
+            padding: 11px 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .music-button:hover {
+            background: #587D99;
+        }
+
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px 20px;
+            background:
+                linear-gradient(
+                    110deg,
+                    rgba(53, 40, 32, 0.75),
+                    rgba(8, 13, 36, 0.85)
+                );
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero-subtitle {
+            color: #B49A82;
+            letter-spacing: 5px;
+            font-size: 12px;
+            margin-bottom: 35px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(48px, 8vw, 90px);
+            font-weight: normal;
+            margin-bottom: 30px;
+            color: #E8E1D8;
+        }
+
+        .hero-description {
+            font-size: 16px;
+            color: #E8E1D8;
+            margin-bottom: 42px;
+            line-height: 1.8;
+        }
+
+        .hero-button {
+            display: inline-block;
+            background: #587D99;
+            color: white;
+            text-decoration: none;
+            padding: 17px 35px;
+            border-radius: 40px;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        .hero-button:hover {
+            background: #B49A82;
+            transform: translateY(-3px);
+        }
+
+        .hero-note {
+            color: #B49A82;
+            margin-top: 35px;
+            font-size: 13px;
+        }
+
+        .hero-heart {
+            position: absolute;
+            right: 11%;
+            bottom: 18%;
+            color: rgba(180, 154, 130, 0.15);
+            font-size: 75px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 25px;
+            background: #080D24;
+            color: #E8E1D8;
+            font-size: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 20px 5%;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            .hero {
+                min-height: 78vh;
+            }
+
+            .hero-subtitle {
+                letter-spacing: 3px;
+                font-size: 10px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+            }
+
+            .hero-heart {
+                right: 8%;
+                bottom: 12%;
+                font-size: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="nav-container">
+
+            <a href="index.html" class="logo">
+                our little story.
+            </a>
+
+            <button id="musicButton" class="music-button">
+                ♫ Music
+            </button>
+
+        </div>
+    </header>
+
+    <!-- HOME PAGE -->
+    <main class="hero">
+
+        <div class="hero-content">
+
+            <p class="hero-subtitle">
+                A SPECIAL DAY TO REMEMBER
+            </p>
+
+            <h1>Our Anniversary</h1>
+
+            <p class="hero-description">
+                One story, two hearts, and countless beautiful memories.
+            </p>
+
+            <a href="story.html" class="hero-button">
+                Discover Our Story ♡
+            </a>
+
+            <p class="hero-note">
+                Made with love, just for us.
+            </p>
+
+        </div>
+
+        <div class="hero-heart">♡</div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 Our Little Story. Made with love ♡</p>
+    </footer>
+
+    <!-- BACKGROUND MUSIC -->
+    <audio id="backgroundMusic" loop>
+        <source src="music/song.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
